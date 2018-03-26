@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+#apns-http2-example: user error (usage: apns-http2-example <host> <port> <cert path> <key path> <device token> <topic>)
+
+host=api.development.push.apple.com
+host=api.push.apple.com
+port=443
+certPath="$APN_CERT_PATH"
+keyPath="$APN_KEY_PATH"
+deviceToken="$DEVICE_TOKEN"
+topic='com.punchh.schlotzskys'
+
+set -x
+stack exec -- apns-http2-example \
+  "$host" \
+  "$port" \
+  "$certPath" \
+  "$keyPath" \
+  "$deviceToken" \
+  "$topic"

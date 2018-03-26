@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+host=api.development.push.apple.com
+host=api.push.apple.com
+
+curl -v \
+  -d '{"aps":{"alert":"Hello 3!"}}' \
+  -H "apns-topic: com.punchh.schlotzskys"  \
+  --http2-prior-knowledge \
+  --cert ../skeys.pem \
+  https://$host/3/device/$DEVICE_TOKEN
