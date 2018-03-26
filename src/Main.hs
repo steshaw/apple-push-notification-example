@@ -53,7 +53,7 @@ main = do
     Left connectError ->
       putStrLn $ "Failed to connect: " <> show connectError
     Right connection -> do
-      for_ [1..(100 :: Int)] $ \ _ -> do
+      for_ [1..(2 :: Int)] $ \ _ -> do
         now <- getCurrentTime
         let _apnsPushData_deviceToken = deviceToken
             _apnsPushData_expiration = addUTCTime (86400*2) now

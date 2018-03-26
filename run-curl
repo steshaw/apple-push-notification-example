@@ -6,9 +6,10 @@ host=api.development.push.apple.com
 host=api.push.apple.com
 topic="$APN_TOPIC"
 
+set -x
 curl -v \
   -d '{"aps":{"alert":"Hello 3!"}}' \
   -H "$topic"  \
   --http2-prior-knowledge \
   --cert "$APN_PEM_PATH" \
-  "https://$host/3/device/$DEVICE_TOKEN"
+  "https://$host/3/device/$APN_DEVICE_TOKEN"

@@ -7,7 +7,7 @@ host=api.push.apple.com
 port=443
 certPath="$APN_CERT_PATH"
 keyPath="$APN_KEY_PATH"
-deviceToken="$DEVICE_TOKEN"
+deviceToken="$APN_DEVICE_TOKEN"
 topic=$APN_TOPIC
 
 set -x
