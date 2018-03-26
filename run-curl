@@ -4,10 +4,11 @@ set -euo pipefail
 
 host=api.development.push.apple.com
 host=api.push.apple.com
+topic="$APN_TOPIC"
 
 curl -v \
   -d '{"aps":{"alert":"Hello 3!"}}' \
-  -H "apns-topic: com.punchh.schlotzskys"  \
+  -H "$topic"  \
   --http2-prior-knowledge \
-  --cert ../skeys.pem \
-  https://$host/3/device/$DEVICE_TOKEN
+  --cert "$APN_PEM_PATH" \
+  "https://$host/3/device/$DEVICE_TOKEN"
